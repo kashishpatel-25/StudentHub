@@ -3,66 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>StudentHub - Home</title>
-    <
+
     <!-- External CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <header>
-    <h1>StudentHub</h1>
-    <p>Your Digital Campus Portal</p>
-  
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2fV8DCMzySaMn_34MVg7P7MGj01zs5abRBj3Zgd-xrQ&s=10" alt="StudentHub Logo" class="logo" style="width: 100px;">
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <div class="header-content">
+            <div>
+                <h1>StudentHub</h1>
+                <p>Your Digital Campus Portal</p>
+            </div>
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2fV8DCMzySaMn_34MVg7P7MGj01zs5abRBj3Zgd-xrQ&s=10"
+                alt="StudentHub Logo"
+                class="logo"
+            >
+        </div>
 
     </header>
 
-    <nav>
-        <a href="index.html">Home</a>|
-        <a href="about.html">About</a>|
-        <a href="register.html">Register</a>|
-        <a href="login.html">Login</a>|
-        <a href="dashboard.html">Dashboard</a>|
-        <a href="events.html">Events</a>|
-        <a href="profile.html">Profile</a>|
-        <a href="contact.html">Concact</a>|
-        <a href="admin.html">Admin</a>|
-        <a href="faq.html">FAQ</a>|
-        <a href="feedback.html">Feedback</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="events.html">Events</a>
+            <a href="profile.html">Profile</a>
+            <a href="contact.html">Contact</a>
+            <a href="admin.html">Admin</a>
+            <a href="faq.html">FAQ</a>
+            <a href="feedback.html">Feedback</a>
+
+        </div>
+
     </nav>
 
-    <main>
-        <section>
-            <h2>Welcome to StudentHub</h2>
 
-            <p>
-                StudentHub is a digital platform where students can register,
-                participate in events,manage profiles, and access academic information.
-            </p>
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h2>Welcome to StudentHub</h2>
+
+                <p>
+                    Your one-stop digital campus portal for managing
+                    student activities, events, profiles, and academic
+                    information.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="register.html" class="btn btn-primary">
+                        Get Started
+                    </a>
+
+                    <a href="events.html" class="btn btn-secondary">
+                        Explore Events
+                    </a>
+                </div>
+
+            </div>
+
         </section>
 
-        <article>
-            <h3>Upcoming Workshop</h3>
+
+        <!-- Features -->
+        <section class="features">
+
+            <h2>What You Can Do</h2>
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+                    <h3>🎓 Student Registration</h3>
+
+                    <p>
+                        Create your StudentHub account and become
+                        part of the digital campus community.
+                    </p>
+
+                    <a href="register.html">Register Now →</a>
+                </article>
+
+
+                <article class="feature-card">
+                    <h3>📅 Campus Events</h3>
+
+                    <p>
+                        Discover upcoming workshops, hackathons,
+                        seminars, and other campus activities.
+                    </p>
+
+                    <a href="events.html">View Events →</a>
+                </article>
+
+
+                <article class="feature-card">
+                    <h3>👤 Student Profile</h3>
+
+                    <p>
+                        Manage your personal information and keep
+                        your student profile up to date.
+                    </p>
+
+                    <a href="profile.html">View Profile →</a>
+                </article>
+
+
+                <article class="feature-card">
+                    <h3>📊 Dashboard</h3>
+
+                    <p>
+                        Access your student information and important
+                        campus activities from one place.
+                    </p>
+
+                    <a href="dashboard.html">Open Dashboard →</a>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Upcoming Workshop -->
+        <section class="content-section">
+
+            <article class="workshop-card">
+
+                <span class="badge">Upcoming Event</span>
+
+                <h2>Web Development Workshop</h2>
+
+                <p>
+                    Learn the fundamentals of modern web development
+                    and build your first responsive website.
+                </p>
+
+                <div class="event-details">
+                    <span>📅 Next Week</span>
+                    <span>💻 Web Development</span>
+                    <span>🎓 Students</span>
+                </div>
+
+                <a href="events.html" class="btn btn-primary">
+                    Learn More
+                </a>
+
+            </article>
+
+        </section>
+
+
+        <!-- Notices -->
+        <section class="notices-section">
+
+            <div class="notices-card">
+
+                <h2>📢 Latest Notices</h2>
+
+                <ul class="notice-list">
+
+                    <li>
+                        <span class="notice-icon">📌</span>
+                        <span>Lab Submission on Friday</span>
+                    </li>
+
+                    <li>
+                        <span class="notice-icon">📌</span>
+                        <span>Workshop Registration Open</span>
+                    </li>
+
+                    <li>
+                        <span class="notice-icon">📌</span>
+                        <span>Hackathon Next Month</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <h3>StudentHub</h3>
 
             <p>
-                A Web Devlopment Workshop will be conducted next week.
+                Your Digital Campus Portal
             </p>
 
-        </article>
-        <aside>
+            <p>
+                &copy; 2026 StudentHub. All Rights Reserved.
+            </p>
 
-            <h3>Latest Notices</h3>
+        </div>
 
-            <ul>
-                <li>Lab Submission on Friday</li>
-                <li>Workshop Registration Open</li>
-                <li>Hackathon Next Month</li>
-            </ul>
-
-        </aside>
-    </main>
-    <footer>
-        <p>&copy; 2026 StudentHub. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>

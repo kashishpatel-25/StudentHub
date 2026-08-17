@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - StudentHub</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* ---------- About Page ---------- */
+        .about-hero {
+            margin: 45px 0 35px;
+            padding: 65px 30px;
+            background: linear-gradient(135deg, #1e40af, #4338ca);
+            color: white;
+            text-align: center;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.18);
+        }
+
+        .about-hero h2 {
+            font-size: 2.7rem;
+            margin-bottom: 15px;
+        }
+
+        .about-hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .about-section {
+            margin: 35px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #e0e7ff;
+            box-shadow: 0 5px 20px rgba(30, 64, 175, 0.07);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(30, 64, 175, 0.12);
+            border-color: #bfdbfe;
+        }
+
+        .about-card h3 {
+            color: #1e40af;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .about-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .mission-section {
+            margin: 40px 0;
+        }
+
+        .mission-card {
+            background: linear-gradient(135deg, #eff6ff, #eef2ff);
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid #dbeafe;
+            text-align: center;
+        }
+
+        .mission-card h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .mission-card p {
+            max-width: 800px;
+            margin: auto;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .why-section {
+            margin: 40px 0 55px;
+        }
+
+        .why-section > h2 {
+            text-align: center;
+            color: #172554;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #e0e7ff;
+            box-shadow: 0 5px 20px rgba(30, 64, 175, 0.07);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(30, 64, 175, 0.12);
+        }
+
+        .why-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .why-card h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: #64748b;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-hero h2 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-hero {
+                margin: 25px 0;
+                padding: 50px 20px;
+                border-radius: 18px;
+            }
+
+            .about-hero h2 {
+                font-size: 1.9rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
+            }
+
+            .about-card {
+                padding: 25px;
+            }
+
+            .mission-card {
+                padding: 30px 20px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div>
+                <h1>StudentHub</h1>
+                <p>Your Complete Student Portal</p>
+            </div>
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2fV8DCMzySaMn_34MVg7P7MGj01zs5abRBj3Zgd-xrQ&s=10"
+                alt="StudentHub Logo"
+                class="logo"
+            >
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="about-hero">
+            <h2>About StudentHub</h2>
+            <p>A simple and organized platform designed to make student life easier, more connected, and more productive.</p>
+        </section>
+
+        <section class="about-section">
+            <div class="about-grid">
+                <article class="about-card">
+                    <h3>What is StudentHub?</h3>
+                    <p>StudentHub is a centralized student portal that brings important college-related information and services together in one convenient place. Students can access events, notices, resources, profiles, and other useful information through an easy-to-use interface.</p>
+                </article>
+
+                <article class="about-card">
+                    <h3>Why StudentHub?</h3>
+                    <p>Students often have to look in different places for announcements, events, resources, and other college information. StudentHub aims to organize these resources and provide students with a simple and accessible platform.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <div class="mission-card">
+                <h2>Our Mission</h2>
+                <p>Our mission is to create a reliable and user-friendly digital space where students can easily find the information they need, stay updated with college activities, and manage their student-related information efficiently.</p>
+            </div>
+        </section>
+
+        <section class="why-section">
+            <h2>What StudentHub Offers</h2>
+
+            <div class="why-grid">
+                <article class="why-card">
+                    <div class="why-icon">✓</div>
+                    <h3>Easy Access</h3>
+                    <p>Access important student information from one organized platform.</p>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-icon">★</div>
+                    <h3>Stay Updated</h3>
+                    <p>Keep track of important notices, events, and college activities.</p>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-icon">↗</div>
+                    <h3>Student Friendly</h3>
+                    <p>A clean and simple interface designed with students in mind.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3>StudentHub</h3>
+            <p>Your Complete Student Portal</p>
+            <p>© 2026 StudentHub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

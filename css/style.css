@@ -1,0 +1,644 @@
+/* ========================================
+   StudentHub - Main Stylesheet
+   Modern Blue Theme
+   ======================================== */
+
+
+/* ---------- Global Styles ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #172554;
+    background: #f4f7ff;
+}
+
+
+/* ---------- Common Container ---------- */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background: linear-gradient(135deg, #1e40af, #4338ca);
+    color: white;
+    padding: 28px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background effect */
+.site-header::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    top: -100px;
+    right: -70px;
+}
+
+.header-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.site-header h1 {
+    font-size: 2.3rem;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.site-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.logo {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    border-radius: 18px;
+    background-color: white;
+    padding: 6px;
+
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+
+/* ---------- Navigation ---------- */
+
+.navbar {
+    background: #111827;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+}
+
+.nav-container {
+    width: 95%;
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-container a {
+    color: #e5e7eb;
+    text-decoration: none;
+
+    padding: 15px 16px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+    border-bottom: 3px solid transparent;
+}
+
+.nav-container a:hover {
+    color: white;
+    background-color: #1e3a8a;
+    border-bottom: 3px solid #60a5fa;
+}
+
+.nav-container a.active {
+    color: white;
+    background-color: #1e3a8a;
+    border-bottom: 3px solid #60a5fa;
+}
+
+
+/* ---------- Hero Section ---------- */
+
+.hero {
+    margin: 45px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 64, 175, 0.98),
+            rgba(67, 56, 202, 0.95)
+        );
+
+    border-radius: 24px;
+
+    color: white;
+
+    padding: 80px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 35px rgba(30, 64, 175, 0.20);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles */
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    top: -150px;
+    left: -100px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    bottom: -120px;
+    right: -70px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: white;
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+.hero .btn-primary {
+    background-color: white;
+    color: #1e40af;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+
+    border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #1e40af;
+
+    transform: translateY(-3px);
+}
+
+
+/* ---------- Features ---------- */
+
+.features {
+    padding: 25px 0 50px;
+}
+
+.features > h2 {
+    text-align: center;
+
+    font-size: 2rem;
+
+    margin-bottom: 35px;
+
+    color: #172554;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+.feature-card {
+    background-color: white;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e0e7ff;
+
+    box-shadow:
+        0 5px 20px rgba(30, 64, 175, 0.07);
+
+    transition: all 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Blue top line */
+
+.feature-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #4f46e5
+    );
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 30px rgba(30, 64, 175, 0.13);
+
+    border-color: #bfdbfe;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+
+    color: #1e40af;
+
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: #64748b;
+
+    margin-bottom: 15px;
+}
+
+.feature-card a {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: color 0.3s ease;
+}
+
+.feature-card a:hover {
+    color: #4338ca;
+}
+
+
+/* ---------- Content Section ---------- */
+
+.content-section {
+    margin: 25px 0 45px;
+}
+
+.workshop-card {
+    background-color: white;
+
+    padding: 35px;
+
+    border-left: 5px solid #2563eb;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(30, 64, 175, 0.07);
+
+    border-top: 1px solid #e0e7ff;
+    border-right: 1px solid #e0e7ff;
+    border-bottom: 1px solid #e0e7ff;
+
+    transition: all 0.3s ease;
+}
+
+.workshop-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(30, 64, 175, 0.10);
+}
+
+.workshop-card h2 {
+    margin: 12px 0;
+
+    color: #172554;
+}
+
+.workshop-card p {
+    color: #64748b;
+
+    margin-bottom: 20px;
+}
+
+.badge {
+    display: inline-block;
+
+    background-color: #dbeafe;
+
+    color: #1e40af;
+
+    padding: 6px 13px;
+
+    border-radius: 20px;
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    border: 1px solid #bfdbfe;
+}
+
+.event-details {
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+
+    color: #475569;
+}
+
+
+/* ---------- Notices ---------- */
+
+.notices-section {
+    margin-bottom: 55px;
+}
+
+.notices-card {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e0e7ff;
+
+    box-shadow:
+        0 5px 20px rgba(30, 64, 175, 0.07);
+}
+
+.notices-card h2 {
+    margin-bottom: 20px;
+
+    color: #172554;
+}
+
+.notice-list {
+    list-style: none;
+}
+
+.notice-list li {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    transition: all 0.2s ease;
+}
+
+.notice-list li:hover {
+    padding-left: 5px;
+
+    color: #1e40af;
+}
+
+.notice-list li:last-child {
+    border-bottom: none;
+}
+
+.notice-icon {
+    color: #2563eb;
+
+    font-size: 1.1rem;
+}
+
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #1e293b
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 0;
+
+    margin-top: 35px;
+
+    border-top: 4px solid #2563eb;
+}
+
+.site-footer h3 {
+    margin-bottom: 5px;
+}
+
+.site-footer p {
+    color: #cbd5e1;
+
+    margin: 5px 0;
+}
+
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 900px) {
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-container a {
+        padding: 12px 10px;
+    }
+
+    .hero h2 {
+        font-size: 2.3rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-header {
+        padding: 25px 0;
+    }
+
+    .site-header h1 {
+        font-size: 1.9rem;
+    }
+
+    .logo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+
+    .nav-container a {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+    }
+
+    .hero {
+        padding: 55px 20px;
+
+        margin: 25px 0;
+
+        border-radius: 18px;
+    }
+
+    .hero h2 {
+        font-size: 1.9rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+        width: 80%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    .workshop-card {
+        padding: 25px;
+    }
+
+    .event-details {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .notices-card {
+        padding: 25px;
+    }
+}

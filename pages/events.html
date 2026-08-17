@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - StudentHub</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .events-hero {
+            margin: 45px 0 35px;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #1e40af, #4338ca);
+            color: white;
+            text-align: center;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.18);
+        }
+
+        .events-hero h2 {
+            font-size: 2.7rem;
+            margin-bottom: 12px;
+        }
+
+        .events-hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .events-section {
+            margin: 40px 0 55px;
+        }
+
+        .events-section > h2 {
+            text-align: center;
+            color: #172554;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e0e7ff;
+            box-shadow: 0 5px 20px rgba(30, 64, 175, 0.07);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(30, 64, 175, 0.13);
+            border-color: #bfdbfe;
+        }
+
+        .event-top {
+            background: linear-gradient(135deg, #2563eb, #4338ca);
+            color: white;
+            padding: 22px;
+        }
+
+        .event-date {
+            font-size: 0.85rem;
+            font-weight: bold;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .event-top h3 {
+            font-size: 1.35rem;
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-content p {
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        .event-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        .event-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .event-button {
+            display: inline-block;
+            width: 100%;
+            padding: 11px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .event-button:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .past-events {
+            margin-top: 50px;
+        }
+
+        .past-events-card {
+            background: linear-gradient(135deg, #eff6ff, #eef2ff);
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .past-events-card h2 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .past-events-card p {
+            color: #64748b;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        @media (max-width: 900px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .events-hero h2 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .events-hero {
+                margin: 25px 0;
+                padding: 50px 20px;
+                border-radius: 18px;
+            }
+
+            .events-hero h2 {
+                font-size: 1.9rem;
+            }
+
+            .events-hero p {
+                font-size: 1rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div>
+                <h1>StudentHub</h1>
+                <p>Your Complete Student Portal</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="events.html" class="active">Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="events-hero">
+            <h2>Campus Events</h2>
+            <p>
+                Discover workshops, competitions, seminars and
+                activities happening around your campus.
+            </p>
+        </section>
+
+        <section class="events-section">
+
+            <h2>Upcoming Events</h2>
+
+            <div class="events-grid">
+
+                <article class="event-card">
+                    <div class="event-top">
+                        <div class="event-date">20 AUGUST 2026</div>
+                        <h3>Web Development Workshop</h3>
+                    </div>
+
+                    <div class="event-content">
+                        <span class="event-tag">WORKSHOP</span>
+
+                        <p>
+                            Learn the fundamentals of modern web
+                            development and build your first website.
+                        </p>
+
+                        <div class="event-info">
+                            <span>📅 20 August 2026</span>
+                            <span>🕐 10:00 AM - 1:00 PM</span>
+                            <span>📍 Computer Lab</span>
+                        </div>
+
+                        <a href="register.html" class="event-button">
+                            Register Now
+                        </a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-top">
+                        <div class="event-date">25 AUGUST 2026</div>
+                        <h3>Coding Competition</h3>
+                    </div>
+
+                    <div class="event-content">
+                        <span class="event-tag">COMPETITION</span>
+
+                        <p>
+                            Test your problem-solving skills and
+                            compete with fellow students.
+                        </p>
+
+                        <div class="event-info">
+                            <span>📅 25 August 2026</span>
+                            <span>🕐 2:00 PM - 5:00 PM</span>
+                            <span>📍 Programming Lab</span>
+                        </div>
+
+                        <a href="register.html" class="event-button">
+                            Register Now
+                        </a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-top">
+                        <div class="event-date">30 AUGUST 2026</div>
+                        <h3>Career Guidance Seminar</h3>
+                    </div>
+
+                    <div class="event-content">
+                        <span class="event-tag">SEMINAR</span>
+
+                        <p>
+                            Get useful career guidance and learn about
+                            opportunities after graduation.
+                        </p>
+
+                        <div class="event-info">
+                            <span>📅 30 August 2026</span>
+                            <span>🕐 11:00 AM - 1:00 PM</span>
+                            <span>📍 Seminar Hall</span>
+                        </div>
+
+                        <a href="register.html" class="event-button">
+                            Register Now
+                        </a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-top">
+                        <div class="event-date">5 SEPTEMBER 2026</div>
+                        <h3>Project Exhibition</h3>
+                    </div>
+
+                    <div class="event-content">
+                        <span class="event-tag">EXHIBITION</span>
+
+                        <p>
+                            Showcase innovative student projects and
+                            explore creative ideas from your peers.
+                        </p>
+
+                        <div class="event-info">
+                            <span>📅 5 September 2026</span>
+                            <span>🕐 10:00 AM - 4:00 PM</span>
+                            <span>📍 Main Auditorium</span>
+                        </div>
+
+                        <a href="register.html" class="event-button">
+                            Register Now
+                        </a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-top">
+                        <div class="event-date">12 SEPTEMBER 2026</div>
+                        <h3>Sports Meet</h3>
+                    </div>
+
+                    <div class="event-content">
+                        <span class="event-tag">SPORTS</span>
+
+                        <p>
+                            Participate in different sports activities
+                            and enjoy a day of teamwork and competition.
+                        </p>
+
+                        <div class="event-info">
+                            <span>📅 12 September 2026</span>
+                            <span>🕐 9:00 AM - 4:00 PM</span>
+                            <span>📍 University Ground</span>
+                        </div>
+
+                        <a href="register.html" class="event-button">
+                            Register Now
+                        </a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-top">
+                        <div class="event-date">18 SEPTEMBER 2026</div>
+                        <h3>Student Club Meet</h3>
+                    </div>
+
+                    <div class="event-content">
+                        <span class="event-tag">STUDENT LIFE</span>
+
+                        <p>
+                            Explore student clubs, meet new people and
+                            find activities that match your interests.
+                        </p>
+
+                        <div class="event-info">
+                            <span>📅 18 September 2026</span>
+                            <span>🕐 3:00 PM - 5:00 PM</span>
+                            <span>📍 Student Activity Center</span>
+                        </div>
+
+                        <a href="register.html" class="event-button">
+                            Register Now
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="past-events">
+                <div class="past-events-card">
+                    <h2>Stay Updated</h2>
+                    <p>
+                        More events and activities will be added to
+                        StudentHub as they are announced by the college.
+                        Check this page regularly for updates.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3>StudentHub</h3>
+            <p>Your Complete Student Portal</p>
+            <p>© 2026 StudentHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
