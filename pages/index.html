@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>StudentHub - Home</title>
-
+    
     <!-- External CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
     <!-- Header -->
@@ -28,12 +27,26 @@
             >
         </div>
 
+        
+        <div class="header-actions">
+            <button id="theme-toggle" type="button"
+                    aria-label="Switch to dark theme">
+                🌙 Dark Mode
+            </button>
+
+            <button id="menu-toggle" type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="main-navigation">
+        ☰ Menu
+            </button>
+        </div>
+
+
     </header>
 
-
     <!-- Navigation -->
-    <nav class="navbar">
-
+    <nav class="navbar" id="main-navigation">
         <div class="nav-container">
 
             <a href="index.html" class="active">Home</a>
@@ -51,6 +64,18 @@
         </div>
 
     </nav>
+    
+    <div id="notification-banner"
+        class="notification-banner"
+        role="status"
+        aria-live="polite"
+        hidden>
+        <span id="notification-message"></span>
+        <button id="notification-close"
+                type="button"
+                aria-label="Dismiss notification">✕</button>
+    </div>
+
 
 
     <!-- Main Content -->
@@ -202,6 +227,92 @@
 
         </section>
 
+        
+<!-- Practical 4: Event Slider -->
+<section class="content-section" aria-labelledby="slider-title">
+    <h2 id="slider-title">Featured Campus Events</h2>
+
+    <div class="slider-card">
+        <p id="slide-number">Event 1 of 3</p>
+        <h3 id="slide-title">Web Development Workshop</h3>
+        <p id="slide-description">
+            Learn HTML, CSS and JavaScript through practical activities.
+        </p>
+
+        <div class="slider-controls">
+            <button id="previous-slide" type="button">← Previous</button>
+            <button id="next-slide" type="button">Next →</button>
+        </div>
+
+        <button id="open-modal" class="btn btn-primary" type="button">
+            View Event Details
+        </button>
+    </div>
+</section>
+
+<!-- Practical 4: Modal Popup -->
+<div id="event-modal" class="modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="modal-title" hidden>
+    <div class="modal-content">
+        <button id="close-modal" class="modal-close"
+                type="button" aria-label="Close dialog">✕</button>
+        <h2 id="modal-title">Campus Event Details</h2>
+        <p id="modal-description"></p>
+        <button id="modal-ok" class="btn btn-primary" type="button">
+            Close
+        </button>
+    </div>
+</div>
+
+<!-- Practical 4: Collapsible FAQ -->
+<section class="content-section" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+        <article class="faq-item">
+            <h3>
+                <button class="faq-question" type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-1">
+                    How do I register on StudentHub?
+                </button>
+            </h3>
+            <div id="faq-answer-1" class="faq-answer" hidden>
+                Visit the Register page and complete the registration form.
+            </div>
+        </article>
+
+        <article class="faq-item">
+            <h3>
+                <button class="faq-question" type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-2">
+                    Where can I find campus events?
+                </button>
+            </h3>
+            <div id="faq-answer-2" class="faq-answer" hidden>
+                Open the Events page to explore campus activities.
+            </div>
+        </article>
+
+        <article class="faq-item">
+            <h3>
+                <button class="faq-question" type="button"
+                        aria-expanded="false"
+                        aria-controls="faq-answer-3">
+                    What is the StudentHub dashboard?
+                </button>
+            </h3>
+            <div id="faq-answer-3" class="faq-answer" hidden>
+                The dashboard provides a central place to access student
+                information and campus activities.
+            </div>
+        </article>
+    </div>
+</section>
+
+
     </main>
 
 
@@ -223,6 +334,6 @@
         </div>
 
     </footer>
-
+<script src="../js/script.js"></script>
 </body>
 </html>

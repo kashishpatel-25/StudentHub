@@ -148,35 +148,115 @@
             margin: auto;
         }
 
-        @media (max-width: 900px) {
-            .events-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        
+/* ---------- Practical 3: Responsive Design ---------- */
 
-            .events-hero h2 {
-                font-size: 2.3rem;
-            }
-        }
+/* Tablet screens */
+@media (max-width: 900px) {
+    .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
 
-        @media (max-width: 600px) {
-            .events-hero {
-                margin: 25px 0;
-                padding: 50px 20px;
-                border-radius: 18px;
-            }
+    .events-hero h2 {
+        font-size: 2.3rem;
+    }
 
-            .events-hero h2 {
-                font-size: 1.9rem;
-            }
+    .event-content {
+        padding: 22px;
+    }
+}
 
-            .events-hero p {
-                font-size: 1rem;
-            }
+/* Mobile screens */
+@media (max-width: 600px) {
+    .events-hero {
+        margin: 25px 0;
+        padding: 40px 18px;
+        border-radius: 16px;
+    }
 
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .events-hero h2 {
+        font-size: clamp(1.7rem, 7vw, 2rem);
+    }
+
+    .events-hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .events-section {
+        margin: 30px 0 40px;
+    }
+
+    .events-section > h2 {
+        font-size: 1.7rem;
+        margin-bottom: 22px;
+    }
+
+    .events-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .event-top {
+        padding: 20px;
+    }
+
+    .event-top h3 {
+        font-size: 1.25rem;
+    }
+
+    .event-content {
+        padding: 20px;
+    }
+
+    .event-info {
+        font-size: 0.9rem;
+        overflow-wrap: anywhere;
+    }
+
+    .past-events-card {
+        padding: 24px 18px;
+    }
+}
+
+/* Extra-small mobile screens */
+@media (max-width: 380px) {
+    .events-hero {
+        padding: 32px 14px;
+    }
+
+    .event-top,
+    .event-content {
+        padding: 16px;
+    }
+
+    .event-top h3 {
+        font-size: 1.1rem;
+    }
+
+    .event-date {
+        font-size: 0.78rem;
+    }
+
+    .past-events-card {
+        padding: 20px 14px;
+    }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .event-card,
+    .event-button {
+        transition: none;
+    }
+
+    .event-card:hover,
+    .event-button:hover {
+        transform: none;
+    }
+}
+
     </style>
 </head>
 
@@ -193,7 +273,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="register.html">Register</a>
             <a href="login.html">Login</a>

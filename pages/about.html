@@ -146,47 +146,101 @@
         }
 
         /* ---------- Responsive ---------- */
-        @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
+        
 
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+/* Tablet screens */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
 
-            .about-hero h2 {
-                font-size: 2.3rem;
-            }
-        }
+    .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
 
-        @media (max-width: 600px) {
-            .about-hero {
-                margin: 25px 0;
-                padding: 50px 20px;
-                border-radius: 18px;
-            }
+    .about-hero h2 {
+        font-size: 2.3rem;
+    }
 
-            .about-hero h2 {
-                font-size: 1.9rem;
-            }
+    .about-card,
+    .why-card {
+        padding: 24px;
+    }
+}
 
-            .about-hero p {
-                font-size: 1rem;
-            }
+/* Mobile screens */
+@media (max-width: 600px) {
+    .about-hero {
+        margin: 25px 0;
+        padding: 40px 18px;
+        border-radius: 16px;
+    }
 
-            .about-card {
-                padding: 25px;
-            }
+    .about-hero h2 {
+        font-size: clamp(1.7rem, 7vw, 2rem);
+    }
 
-            .mission-card {
-                padding: 30px 20px;
-            }
+    .about-hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .about-grid,
+    .why-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .about-card,
+    .why-card {
+        padding: 22px;
+    }
+
+    .mission-card {
+        padding: 28px 18px;
+    }
+
+    .mission-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .why-section > h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* Extra-small mobile screens */
+@media (max-width: 380px) {
+    .about-hero {
+        padding: 32px 14px;
+    }
+
+    .about-card,
+    .why-card {
+        padding: 18px;
+    }
+
+    .mission-card {
+        padding: 24px 14px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .about-card,
+    .why-card {
+        transition: none;
+    }
+
+    .about-card:hover,
+    .why-card:hover {
+        transform: none;
+    }
+}
+
     </style>
 </head>
 
@@ -207,7 +261,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="about.html" class="active">About</a>
             <a href="register.html">Register</a>
             <a href="login.html">Login</a>

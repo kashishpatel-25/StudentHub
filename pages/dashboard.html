@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudentHub dashboard for student activities, events and notices.">
+    <title>Dashboard - StudentHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Dashboard layout */
+        .dashboard-intro {
+            margin: 35px 0 25px;
+            padding: 35px;
+            color: white;
+            background: linear-gradient(135deg, #2563eb, #4338ca);
+            border-radius: 20px;
+            box-shadow: 0 10px 28px rgba(30, 64, 175, 0.15);
+        }
+
+        .dashboard-intro h2 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .dashboard-intro p {
+            line-height: 1.7;
+        }
+
+        .dashboard-section {
+            margin: 30px 0;
+        }
+
+        .dashboard-section > h2 {
+            color: #172554;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        /* Summary cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            padding: 25px;
+            background: white;
+            border: 1px solid #e0e7ff;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(30, 64, 175, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(30, 64, 175, 0.12);
+        }
+
+        .stat-card h3 {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .stat-number {
+            color: #2563eb;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-card p {
+            margin-top: 8px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Main dashboard columns */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .dashboard-card {
+            min-width: 0;
+            padding: 25px;
+            background: white;
+            border: 1px solid #e0e7ff;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(30, 64, 175, 0.06);
+        }
+
+        .dashboard-card h3 {
+            color: #1e40af;
+            margin-bottom: 18px;
+            font-size: 1.2rem;
+        }
+
+        /* Event and notice lists */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .activity-item {
+            padding: 15px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .activity-item h4 {
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .activity-item p {
+            color: #64748b;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .activity-date {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: #1d4ed8;
+            font-size: 0.82rem;
+            font-weight: bold;
+        }
+
+        /* Quick links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 65px;
+            padding: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: #1e40af;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .quick-link:hover {
+            color: white;
+            background: #2563eb;
+        }
+
+        .dashboard-footer-note {
+            margin: 30px 0;
+            padding: 18px;
+            color: #475569;
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .dashboard-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .dashboard-intro {
+                padding: 28px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .dashboard-intro {
+                margin: 25px 0;
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+
+            .dashboard-intro h2 {
+                font-size: 1.65rem;
+            }
+
+            .dashboard-section {
+                margin: 25px 0;
+            }
+
+            .dashboard-section > h2 {
+                font-size: 1.4rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .dashboard-card {
+                padding: 20px;
+            }
+
+            .quick-links {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /* Extra-small mobile */
+        @media (max-width: 380px) {
+            .dashboard-intro {
+                padding: 22px 16px;
+            }
+
+            .dashboard-intro h2 {
+                font-size: 1.45rem;
+            }
+
+            .stat-card,
+            .dashboard-card {
+                padding: 17px;
+            }
+        }
+
+        /* Keyboard accessibility */
+        .quick-link:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 3px;
+        }
+
+        /* Reduced motion accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .stat-card,
+            .quick-link {
+                transition: none;
+            }
+
+            .stat-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div>
+                <h1>StudentHub</h1>
+                <p>Your Complete Student Portal</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="dashboard.html" class="active" aria-current="page">Dashboard</a>
+            <a href="events.html">Events</a>
+            <a href="profile.html">Profile</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Welcome section -->
+        <section class="dashboard-intro" aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Welcome to Your Dashboard!</h2>
+            <p>
+                Stay organized, explore campus activities, and access
+                important student information in one place.
+            </p>
+        </section>
+
+        <!-- Student summary -->
+        <section class="dashboard-section" aria-labelledby="overview-heading">
+            <h2 id="overview-heading">Your Overview</h2>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <h3>Upcoming Events</h3>
+                    <div class="stat-number">6</div>
+                    <p>Events listed on StudentHub</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Quick Resources</h3>
+                    <div class="stat-number">4</div>
+                    <p>Useful student portal links</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Student Profile</h3>
+                    <div class="stat-number">1</div>
+                    <p>Profile page available to view</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Events and quick links -->
+        <div class="dashboard-grid">
+
+            <section class="dashboard-section" aria-labelledby="events-heading">
+                <div class="dashboard-card">
+                    <h3 id="events-heading">Campus Activities</h3>
+
+                    <div class="activity-list">
+                        <article class="activity-item">
+                            <span class="activity-date">Event information</span>
+                            <h4>Web Development Workshop</h4>
+                            <p>
+                                Explore website design, HTML, CSS, and
+                                modern web development.
+                            </p>
+                        </article>
+
+                        <article class="activity-item">
+                            <span class="activity-date">Event information</span>
+                            <h4>Coding Competition</h4>
+                            <p>
+                                Practice problem-solving and challenge
+                                your programming skills.
+                            </p>
+                        </article>
+
+                        <article class="activity-item">
+                            <span class="activity-date">Event information</span>
+                            <h4>Career Guidance Seminar</h4>
+                            <p>
+                                Learn about career paths and opportunities
+                                after graduation.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <div>
+                <section class="dashboard-section" aria-labelledby="links-heading">
+                    <div class="dashboard-card">
+                        <h3 id="links-heading">Quick Links</h3>
+
+                        <div class="quick-links">
+                            <a href="events.html" class="quick-link">
+                                View Events
+                            </a>
+
+                            <a href="profile.html" class="quick-link">
+                                My Profile
+                            </a>
+
+                            <a href="faq.html" class="quick-link">
+                                FAQs
+                            </a>
+
+                            <a href="feedback.html" class="quick-link">
+                                Feedback
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="dashboard-section" aria-labelledby="notice-heading">
+                    <div class="dashboard-card">
+                        <h3 id="notice-heading">Student Notice</h3>
+
+                        <div class="activity-item">
+                            <h4>Stay Updated</h4>
+                            <p>
+                                Visit the Events page regularly to check
+                                the latest campus activity information.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+        <aside class="dashboard-footer-note">
+            <strong>Note:</strong> This dashboard currently displays
+            sample information for the Practical 3 UI design. Dynamic
+            data and account-specific information can be added in later
+            practicals.
+        </aside>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3>StudentHub</h3>
+            <p>Your Complete Student Portal</p>
+            <p>&copy; 2026 StudentHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

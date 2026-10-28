@@ -642,3 +642,374 @@ body {
         padding: 25px;
     }
 }
+
+
+/* ========================================
+   PRACTICAL 3 - RESPONSIVE UI IMPROVEMENTS
+   ======================================== */
+
+/* Prevent content from overflowing */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+    font: inherit;
+}
+
+.container {
+    width: min(90%, 1200px);
+}
+
+/* Improve keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* Tablet screens */
+@media (max-width: 900px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .header-content {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 60px 24px;
+    }
+
+    .hero h2 {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+
+    .nav-container a {
+        padding: 12px 10px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .site-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .site-header p {
+        font-size: 0.95rem;
+    }
+
+    .nav-container {
+        justify-content: flex-start;
+    }
+
+    .nav-container a {
+        padding: 10px 9px;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 42px 18px;
+        margin: 24px 0;
+        border-radius: 16px;
+    }
+
+    .hero h2 {
+        font-size: clamp(1.7rem, 7vw, 2rem);
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .feature-card,
+    .workshop-card,
+    .notices-card {
+        padding: 22px;
+    }
+
+    .features > h2 {
+        font-size: 1.65rem;
+    }
+
+    .event-details {
+        gap: 10px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 380px) {
+    .container {
+        width: 94%;
+    }
+
+    .site-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .nav-container a {
+        padding: 9px 7px;
+        font-size: 0.78rem;
+    }
+
+    .hero h2 {
+        font-size: 1.55rem;
+    }
+
+    .feature-card {
+        padding: 18px;
+    }
+}
+
+
+/* Practical 4: Dynamic UI Components */
+
+.header-actions,
+.slider-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.header-actions button,
+.slider-controls button,
+.faq-question,
+.modal-close,
+#notification-close {
+    cursor: pointer;
+    font: inherit;
+}
+
+.header-actions button,
+.slider-controls button {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-actions button:hover,
+.slider-controls button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Mobile navigation */
+#main-navigation .nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: inline-block;
+    }
+
+    #main-navigation:not(.menu-open) {
+        display: none;
+    }
+
+    #main-navigation.menu-open {
+        display: block;
+    }
+
+    #main-navigation .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Notification */
+.notification-banner {
+    margin: 16px auto;
+    padding: 12px 16px;
+    max-width: 1100px;
+    border-radius: 8px;
+    background: #dbeafe;
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.notification-banner[hidden],
+.modal[hidden],
+.faq-answer[hidden] {
+    display: none;
+}
+
+#notification-close {
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 18px;
+}
+
+/* Slider */
+.slider-card {
+    padding: 24px;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    background: #f8fafc;
+    transition: box-shadow 0.2s ease;
+}
+
+.slider-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.65);
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+    padding: 28px;
+    border-radius: 16px;
+    background: white;
+    color: #1e293b;
+    position: relative;
+    animation: modal-appear 0.2s ease-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FAQ */
+.faq-item {
+    margin: 12px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.faq-item h3 {
+    margin: 0;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    text-align: left;
+    background: #eff6ff;
+    color: #1e293b;
+}
+
+.faq-answer {
+    padding: 16px;
+    line-height: 1.6;
+}
+
+/* Dark theme */
+body.dark-theme {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-theme .site-header,
+body.dark-theme .navbar,
+body.dark-theme .site-footer {
+    background: #111827;
+    color: #f8fafc;
+}
+
+body.dark-theme .feature-card,
+body.dark-theme .workshop-card,
+body.dark-theme .notices-card,
+body.dark-theme .slider-card {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+body.dark-theme .faq-question {
+    background: #334155;
+    color: #f8fafc;
+}
+
+body.dark-theme .faq-answer {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+body.dark-theme .notification-banner {
+    background: #1e3a5f;
+    color: #dbeafe;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -126,25 +126,216 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 600px) {
-            .register-section {
-                padding: 30px 0;
-            }
+        
+/* ---------- Practical 3: Responsive Registration ---------- */
 
-            .register-card {
-                padding: 28px 20px;
-                border-radius: 16px;
-            }
+/* Tablet and smaller screens */
+@media (max-width: 900px) {
+    .register-section {
+        min-height: auto;
+        padding: 40px 0;
+    }
 
-            .register-header h2 {
-                font-size: 1.7rem;
-            }
+    .register-card {
+        max-width: 600px;
+        padding: 32px;
+    }
 
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-        }
+    .form-row {
+        gap: 14px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .register-section {
+        min-height: auto;
+        padding: 28px 0;
+    }
+
+    .register-card {
+        width: 100%;
+        padding: 26px 18px;
+        border-radius: 16px;
+    }
+
+    .register-header {
+        margin-bottom: 24px;
+    }
+
+    .register-header h2 {
+        font-size: 1.65rem;
+    }
+
+    .register-header p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+        min-width: 0;
+    }
+
+    .form-group input,
+    .form-group select {
+        box-sizing: border-box;
+        min-width: 0;
+        font-size: 16px;
+    }
+
+    .terms {
+        align-items: flex-start;
+        line-height: 1.5;
+    }
+
+    .terms input {
+        flex-shrink: 0;
+    }
+
+    .register-button {
+        min-height: 46px;
+    }
+}
+
+/* Extra-small mobile screens */
+@media (max-width: 380px) {
+    .register-card {
+        padding: 22px 14px;
+    }
+
+    .register-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 11px 10px;
+    }
+}
+
+/* Visible keyboard focus */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.terms input:focus-visible,
+.register-button:focus-visible,
+.login-link a:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .form-group input,
+    .form-group select,
+    .register-button {
+        transition: none;
+    }
+
+    .register-button:hover {
+        transform: none;
+    }
+}
+
+
+/* Practical 5: Form validation styles */
+
+.error-message {
+    display: block;
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"] {
+    border: 1px solid #dc2626;
+    background-color: #fef2f2;
+}
+
+.form-group input[aria-invalid="false"],
+.form-group select[aria-invalid="false"] {
+    border-color: #16a34a;
+}
+
+.gender-group {
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 14px;
+}
+
+.gender-group legend {
+    padding: 0 6px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.gender-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+}
+
+.gender-options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.gender-options input {
+    accent-color: #2563eb;
+}
+
+.strength-track {
+    height: 7px;
+    margin: 10px 0 6px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#strength-bar {
+    width: 0;
+    height: 100%;
+    background: #dc2626;
+    transition: width 0.2s ease;
+}
+
+.password-strength {
+    margin-top: 9px;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.gender-options input:focus-visible,
+.terms input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .gender-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #strength-bar {
+        transition: none;
+    }
+}
+
     </style>
 </head>
 
@@ -161,7 +352,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="register.html" class="active">Register</a>
             <a href="login.html">Login</a>
@@ -220,6 +411,24 @@
                         >
                     </div>
 
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="Enter 10-digit mobile number"
+                            inputmode="numeric"
+                            autocomplete="tel-national"
+                            pattern="[6-9][0-9]{9}"
+                            maxlength="10"
+                            required
+                            aria-describedby="mobile-error"
+                        >
+                        <span id="mobile-error" class="error-message"
+                            aria-live="polite"></span>
+                    </div>
+
                     <div class="form-row">
 
                         <div class="form-group">
@@ -248,6 +457,20 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="year">Academic Year</label>
+                            <select id="year" name="year" required
+                                    aria-describedby="year-error">
+                                <option value="">Select academic year</option>
+                                <option value="1">First Year</option>
+                                <option value="2">Second Year</option>
+                                <option value="3">Third Year</option>
+                                <option value="4">Fourth Year</option>
+                            </select>
+                            <span id="year-error" class="error-message"
+                                aria-live="polite"></span>
+                            </div>
+
                     </div>
 
                     <div class="form-group">
@@ -261,6 +484,35 @@
                         >
                     </div>
 
+                    <fieldset class="form-group gender-group">
+                    <legend>Gender</legend>
+
+                    <div class="gender-options">
+                        <label>
+                            <input type="radio" name="gender" value="Female" required>
+                            Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Male">
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Other">
+                            Other
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Prefer not to say">
+                            Prefer not to say
+                        </label>
+                    </div>
+
+    <span id="gender-error" class="error-message"
+          aria-live="polite"></span>
+</fieldset>
+
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input
@@ -269,7 +521,17 @@
                             name="password"
                             placeholder="Create a password"
                             required
+                            minlength="8"
+                            aria-describedby="password-error strength-text"
                         >
+                        <div class="password-strength" aria-live="polite">
+                            <div class="strength-track">
+                                <div id="strength-bar"></div>
+                            </div>
+                            <span id="strength-text">Password strength: Not entered</span>
+                        </div>
+                        <span id="password-error" class="error-message"
+                            aria-live="polite"></span>
                     </div>
 
                     <div class="form-group">
@@ -280,7 +542,10 @@
                             name="confirmPassword"
                             placeholder="Confirm your password"
                             required
+                            aria-describedby="confirmPassword-error"
                         >
+                        <span id="confirmPassword-error" class="error-message"
+                                aria-live="polite"></span>
                     </div>
 
                     <div class="terms">
@@ -314,6 +579,6 @@
             <p>© 2026 StudentHub. All rights reserved.</p>
         </div>
     </footer>
-
+<script src="../js/validation.js"></script>
 </body>
 </html>
